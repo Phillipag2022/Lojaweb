@@ -29,11 +29,11 @@ public class Permissao {
     @NotBlank
     private String nome;
 
-    @NotBlank
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
 
-    @NotBlank
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
 }

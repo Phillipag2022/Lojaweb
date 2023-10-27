@@ -10,16 +10,11 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
+
 @Entity(name="Marca")
 @Table(name="Marca")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class Marca {
     
     @Id
@@ -29,11 +24,11 @@ public class Marca {
     @NotBlank
     private String nome;
 
-    @NotBlank
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
 
-    @NotBlank
+   
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
 }

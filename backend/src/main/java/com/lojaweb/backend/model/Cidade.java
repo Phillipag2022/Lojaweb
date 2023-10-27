@@ -31,16 +31,16 @@ public class Cidade {
     @NotBlank
     private String nome;
 
-    @NotBlank
+    
     @ManyToOne
     @JoinColumn(name="idEstado")
     private Estado estado;
 
-    @NotBlank
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateCriaçao;
     
-    @NotBlank
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataCriaçao;
+    
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
 
