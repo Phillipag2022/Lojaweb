@@ -63,11 +63,11 @@ public class Pessoa {
     @Setter(value = AccessLevel.NONE)
     private List<PermissaoPessoa> permissaoPessoas;
 
-    @NotBlank
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateCriaçao;
 
-    @NotBlank
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao; 
 

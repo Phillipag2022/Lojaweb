@@ -11,7 +11,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,18 +26,20 @@ public class PermissaoPessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne
     @JoinColumn(name="idPessoa")
     private Pessoa pessoa;
+
     @ManyToOne
     @JoinColumn(name="idPermissao")
     private Permissao permissao;
 
-    @NotBlank
+   
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
 
-    @NotBlank
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
 }
