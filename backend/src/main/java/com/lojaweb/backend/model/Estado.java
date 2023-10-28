@@ -21,7 +21,7 @@ public class Estado {
     private long id;
 
     @NotBlank
-    private String name;
+    private String nome;
 
     @NotBlank
     private String sigla;
