@@ -65,7 +65,7 @@ public class Pessoa {
 
     
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dateCriaçao;
+    private Date dataCriaçao;
 
     
     @Temporal(TemporalType.TIMESTAMP)
