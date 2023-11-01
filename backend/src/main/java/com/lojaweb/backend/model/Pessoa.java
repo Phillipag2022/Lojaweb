@@ -57,7 +57,7 @@ public class Pessoa {
     @NotBlank
     @ManyToOne
     @JoinColumn(name="idCidade")
-    private Cidade estado;
+    private Cidade cidade;
 
     @OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @Setter(value = AccessLevel.NONE)

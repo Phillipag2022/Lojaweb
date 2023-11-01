@@ -9,31 +9,24 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+//import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
+
 
 @Entity(name="Permissao")
 @Table(name="Permissao")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class Permissao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    
     private String nome;
 
-    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
 
-    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
 }
