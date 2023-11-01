@@ -11,17 +11,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
+
 
 @Entity(name="Permissao_Pessoa")
 @Table(name="Permissao_Pessoa")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class PermissaoPessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
