@@ -33,7 +33,7 @@ public class CidadeService {
    }
 
    public void deletaCidade(Long id){
-        Cidade cidade = cidadeRepository.findById(id).get();
-        cidadeRepository.delete(cidade);
+        Cidade idCidade = cidadeRepository.findById(id).get();
+        cidadeRepository.delete(idCidade);
        }
 }

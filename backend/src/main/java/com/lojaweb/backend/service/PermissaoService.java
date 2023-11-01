@@ -13,7 +13,7 @@ import com.lojaweb.backend.repository.PermissaoRepository;
 
 @Service
 public class PermissaoService {
-    
+
     @Autowired
     private PermissaoRepository permissaoRepository;
 
@@ -33,7 +33,7 @@ public class PermissaoService {
     }
 
     public void deletaPermissao(Long id){
-        Permissao permissao = this.permissaoRepository.findById(id).get();
-        permissaoRepository.delete(permissao);
+        Permissao idPermissao = this.permissaoRepository.findById(id).get();
+        permissaoRepository.delete(idPermissao);
     }
 }

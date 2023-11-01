@@ -12,6 +12,7 @@ import com.lojaweb.backend.repository.ProdutoRepository;
 
 @Service
 public class ProdutoService {
+
     @Autowired
     private ProdutoRepository produtoRepository;
 
@@ -31,7 +32,7 @@ public class ProdutoService {
     }
 
     public void deletaProduto(Long id){
-        Produto produto = this.produtoRepository.findById(id).get();
-        produtoRepository.delete(produto);
+        Produto idProduto = this.produtoRepository.findById(id).get();
+        produtoRepository.delete(idProduto);
     }
 }

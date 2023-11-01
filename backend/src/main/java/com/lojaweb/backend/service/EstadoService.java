@@ -36,8 +36,8 @@ public class EstadoService {
     }
 
    public void deletaEstado(Long id){
-        Estado estado = estadoRepository.findById(id).get();
-        estadoRepository.delete(estado);
+        Estado idEstado = estadoRepository.findById(id).get();
+        estadoRepository.delete(idEstado);
     }
 
     

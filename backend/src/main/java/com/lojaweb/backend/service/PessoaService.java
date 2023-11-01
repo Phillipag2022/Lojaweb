@@ -36,7 +36,7 @@ public class PessoaService {
     }
     
     public void deletaPessoa(Long id){
-        Pessoa pesssoa = this.pessoaRepository.findById(id).get();
-        pessoaRepository.delete(pesssoa);
+        Pessoa idPesssoa = this.pessoaRepository.findById(id).get();
+        pessoaRepository.delete(idPesssoa);
     }
 }
