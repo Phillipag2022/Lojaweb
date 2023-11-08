@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.lojaweb.backend.model.Marca;
 
 @Repository
-public interface MarcaRepository extends JpaRepository<Marca,Long> {
+public interface MarcaRepository extends JpaRepository<Marca,Long>{
     
 }

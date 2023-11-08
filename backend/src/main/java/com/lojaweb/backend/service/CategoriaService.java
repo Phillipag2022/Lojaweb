@@ -1,5 +1,6 @@
 package com.lojaweb.backend.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,13 @@ public class CategoriaService {
     }
 
     public ResponseEntity<Categoria> salvaCategoria(Categoria categoria){
+        categoria.setDataCriacao(new Date());
         Categoria novaCategoria = categoriaRepository.save(categoria);
         return new ResponseEntity<Categoria>(novaCategoria, HttpStatus.CREATED);
     }
 
     public ResponseEntity<Categoria> alteraCategoria(Categoria categoria){
+        categoria.setDataAtualizacao(new Date());
         return new ResponseEntity<>(categoriaRepository.save(categoria), HttpStatus.OK);
     }
 

@@ -1,7 +1,6 @@
 package com.lojaweb.backend.controller;
 
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,24 +17,26 @@ import com.lojaweb.backend.service.MarcaService;
 @RequestMapping("api/marca")
 public class MarcaController {
     
-     @Autowired
     private MarcaService marcaService;
 
     @GetMapping("/")
-    public List<Marca> listaTodas(){
+    public List<Marca> listaTodos(){
         return marcaService.listaTodos();
     }
+    
     @PostMapping("/")
     public ResponseEntity<Marca> salvaMarca(@RequestBody Marca marca){
         return marcaService.salvaMarca(marca);
     }
+
     @PutMapping("/")
     public ResponseEntity<Marca> alteraMarca(@RequestBody Marca marca){
         return marcaService.alteraMarca(marca);
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletaMarca(@PathVariable("id") Long id){
-        marcaService.deletaMarca(id);   
+        marcaService.deletaMarca(id);
         return ResponseEntity.ok().build();
-     }
+    }
 }
