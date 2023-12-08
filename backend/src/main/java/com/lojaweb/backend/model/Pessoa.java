@@ -14,7 +14,6 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -33,41 +32,37 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     private String nome;
     
-    @NotBlank
     @Size(max = 11)
     private String cpf;
 
-    @NotBlank
     @Email
     private String email;
+
+    private String codigoRecuperaçaoSenha;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataEnvioCodigo;
     
-    @NotBlank
     @Size(min = 8, max=20)
     private String senha;
 
-    @NotBlank
     private String endereço;
 
-    @NotBlank
     private String cep;
 
-    @NotBlank
-    @ManyToOne
+   @ManyToOne
     @JoinColumn(name="idCidade")
     private Cidade cidade;
 
-    @OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @Setter(value = AccessLevel.NONE)
     private List<PermissaoPessoa> permissaoPessoas;
 
-    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriaçao;
 
-    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao; 
 
