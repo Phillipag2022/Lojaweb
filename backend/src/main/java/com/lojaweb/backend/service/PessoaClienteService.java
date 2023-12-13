@@ -1,7 +1,10 @@
 package com.lojaweb.backend.service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.lojaweb.backend.DTO.PessoaClienteDTO;
 import com.lojaweb.backend.model.Pessoa;
 import com.lojaweb.backend.repository.PessoaClienteRepository;
-import jakarta.validation.Valid;
+
 
 @Service
 public class PessoaClienteService {
@@ -31,8 +34,11 @@ public class PessoaClienteService {
         pessoa.setDataCriaçao(new Date());
         Pessoa novaPessoa = pessoaClienteRepository.save(pessoa);
         permissaoPessoaService.vincularPermissaoPessoaCliente(novaPessoa);
-        
-        emailService.envioEmail(novaPessoa.getEmail(),"cadastro ma lojaweb","Cadastro na lojaweb realizadom com sucesso!! Utilize o esqueceu senha para gerar senha de acesso.");
+        Map<String, Object> propMap = new HashMap<>();
+        propMap.put("nome",novaPessoa.getNome());
+        propMap.put("mensagem", "Cadastro na lojaweb realizadom com sucesso!! Utilize o esqueceu senha para gerar senha de acesso.");
+        emailService.enviarEmailTemplate(novaPessoa.getEmail(), "cadastro ma lojaweb", propMap);
+        //emailService.envioEmail(novaPessoa.getEmail(),"cadastro ma lojaweb","Cadastro na lojaweb realizadom com sucesso!! Utilize o esqueceu senha para gerar senha de acesso.");
         
         return new ResponseEntity<Pessoa>(novaPessoa, HttpStatus.CREATED);
        
